@@ -1,0 +1,15 @@
+---
+tasks:
+- id: 1
+  title: lamp
+  description: blue one
+- id: 2
+  title: tv
+  description: big one
+- id: 3
+  title: find pot of gold
+  description: at end of rainbow
+- id: 4
+  title: find nirvana
+  description: might take a while
+total: 4
