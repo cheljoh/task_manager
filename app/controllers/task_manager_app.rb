@@ -1,7 +1,8 @@
 require 'models/task_manager'
 
-class TaskManagerApp < Sinatra::Base
+class TaskManagerApp < Sinatra::Base #needs to inherit from sinatra to do get methods
   set :root, File.expand_path("..", __dir__)
+  set :method_override, true #can override post with _method
 
   get '/' do
     erb :dashboard
@@ -19,6 +20,26 @@ class TaskManagerApp < Sinatra::Base
   post '/tasks' do
     task_manager.create(params[:task])
     redirect '/tasks'
+    # sending response back at a specific location, get to /tasks
+  end
+
+  get "/tasks/:id/edit" do |id| #or can use params[:edit]
+    @task= task_manager.find(id.to_i)
+    erb :edit
+  end
+
+  put "/tasks/:id" do |id|
+    task_manager.update(params[:task], id.to_i)
+    redirect "/tasks"
+  end
+
+  delete "/tasks/:id" do |id|
+    task_manager.delete(id.to_i)
+    redirect '/tasks'
+  end
+
+  not_found do
+    erb :error #method call
   end
 
   get '/tasks/:id' do |id|
@@ -27,7 +48,7 @@ class TaskManagerApp < Sinatra::Base
   end
 
   def task_manager
-    database = YAML::Store.new('db/task_manager')
-    @task_manager ||= TaskManager.new(database)
+    database = YAML::Store.new('db/task_manager') #how you manipulate yaml file
+    @task_manager ||= TaskManager.new(database) #makes a new instance var if not already there
   end
 end

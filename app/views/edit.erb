@@ -1,0 +1,14 @@
+<div class="row well col-md-4">
+  <form action="/tasks/<%= @task.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <div class="form-group">
+      <label for="Task">Edit task name:</label>
+      <input type='text' name='task[title]' value="<%= @task.title %>"/>
+    </div>
+    <div class="form-group">
+      <label for="Description">Edit description:</label>
+      <textarea name='task[description]'><%= @task.description %></textarea>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>

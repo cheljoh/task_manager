@@ -1,33 +1,12 @@
 ---
 tasks:
-- id: 1
-  title: lamp
-  description: blue one
-- id: 2
-  title: tv
-  description: big one
-- id: 3
-  title: find pot of gold
-  description: at end of rainbow
-- id: 4
-  title: find nirvana
-  description: might take a while
-- id: 5
-  title: get a scooter
-  description: razer
-- id: 6
-  title: get a scooter
-  description: razer
 - id: 7
-  title: get computer
+  title: get cat
   description: FAST ONE
 - id: 8
   title: Get socks
   description: white ones
-- id: 9
-  title: socks
-  description: red ones
 - id: 10
   title: cereal
   description: 90% sugar
-total: 10
+total: 16
