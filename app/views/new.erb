@@ -1,6 +1,13 @@
-<form action="/tasks" method="post">
-  <p>Enter a new task:</p>
-  <input type='text' name='task[title]'/><br/>
-  <textarea name='task[description]'></textarea><br/>
-  <input type='submit'/>
-</form>
+<div class="row well">
+  <form action="/tasks" method="post" role="form">
+    <div class="form-group">
+        <label for="Task">Task:</label>
+        <input type="text" name='task[title]'>
+      </div>
+      <div class="form-group">
+        <label for="Description">Description:</label>
+        <input type="text" name="task[description]">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,23 @@
+h1 {
+  color: green;
+  font-size: 300%
+}
+
+.background-color {
+  background-color: #FFFFFF;
+}
+
+body {
+  background-color: #C8C8C8
+}
+
+.navbar {
+  color: #FFFFFF;
+  font-size: 120%
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+  width: 6em;
+}

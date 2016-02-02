@@ -12,4 +12,22 @@ tasks:
 - id: 4
   title: find nirvana
   description: might take a while
-total: 4
+- id: 5
+  title: get a scooter
+  description: razer
+- id: 6
+  title: get a scooter
+  description: razer
+- id: 7
+  title: get computer
+  description: FAST ONE
+- id: 8
+  title: Get socks
+  description: white ones
+- id: 9
+  title: socks
+  description: red ones
+- id: 10
+  title: cereal
+  description: 90% sugar
+total: 10

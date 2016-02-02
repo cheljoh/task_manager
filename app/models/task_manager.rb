@@ -1,4 +1,4 @@
-require 'yaml/store'
+require 'yaml/store' #just need store part of yaml
 require_relative 'task'
 
 class TaskManager
@@ -10,7 +10,7 @@ class TaskManager
 
   def create(task)
     database.transaction do
-      database['tasks'] ||= []
+      database['tasks'] ||= [] #make sure its there or create empty array
       database['total'] ||= 0
       database['total'] += 1
       database['tasks'] << {"id" => database['total'], "title" => task[:title], "description" => task[:description] }
@@ -18,7 +18,7 @@ class TaskManager
   end
 
   def raw_tasks
-    database.transaction do
+    database.transaction do #make a new YAML store, transaction wraps in a block, way to access file
       database['tasks'] || []
     end
   end
