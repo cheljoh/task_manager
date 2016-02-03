@@ -1,5 +1,3 @@
-require 'yaml/store' #just need store part of yaml
-require_relative 'task'
 
 class TaskManager
   attr_reader :database
@@ -47,6 +45,13 @@ class TaskManager
 
   def all
     raw_tasks.map {|data| Task.new(data)}
+  end
+
+  def delete_all #only for testing bc of yaml file
+    database.transaction do
+      database['tasks'] = []
+      database['total'] = 0
+    end
   end
 
 end

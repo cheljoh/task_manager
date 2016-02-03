@@ -1,8 +1,6 @@
-require 'models/task_manager'
+require 'yaml/store' #just need store part of yaml
 
 class TaskManagerApp < Sinatra::Base #needs to inherit from sinatra to do get methods
-  set :root, File.expand_path("..", __dir__)
-  set :method_override, true #can override post with _method
 
   get '/' do
     erb :dashboard
@@ -51,4 +49,5 @@ class TaskManagerApp < Sinatra::Base #needs to inherit from sinatra to do get me
     database = YAML::Store.new('db/task_manager') #how you manipulate yaml file
     @task_manager ||= TaskManager.new(database) #makes a new instance var if not already there
   end
+
 end

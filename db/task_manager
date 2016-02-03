@@ -1,8 +1,8 @@
 ---
 tasks:
 - id: 7
-  title: get cat
-  description: FAST ONE
+  title: get car
+  description: blue one
 - id: 8
   title: Get socks
   description: white ones

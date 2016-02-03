@@ -1,8 +1,3 @@
-require 'bundler'
-Bundler.require #requires all gems
-
-$LOAD_PATH.unshift(File.expand_path("app", __dir__))
-
-require 'controllers/task_manager_app'
+require File.expand_path('../config/environment',  __FILE__) #get out of config, go into config folder and require environment
 
 run TaskManagerApp #has to have a call method that takes envt, rack protocol
