@@ -4,3 +4,5 @@ gem 'sinatra', require: 'sinatra/base' #only require a specific part
 gem 'shotgun'
 gem 'pry'
 gem 'minitest'
+gem 'capybara'
+gem 'launchy'

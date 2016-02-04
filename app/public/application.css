@@ -3,6 +3,10 @@ h1 {
   font-size: 300%
 }
 
+#greeting {
+  color: green;
+}
+
 .background-color {
   background-color: #FFFFFF;
 }

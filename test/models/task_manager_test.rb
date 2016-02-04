@@ -14,7 +14,6 @@ class TaskManagerTest < Minitest::Test
     assert task.id
     assert_equal "some title", task.title
     assert_equal "some description", task.description
-    teardown
     #will delete db afterwards
   end
 
@@ -31,7 +30,6 @@ class TaskManagerTest < Minitest::Test
     task_manager.create(data2)
     assert_equal 2, task_manager.all.length
     assert_equal "get food", task_manager.all.last.title
-    teardown
   end
 
   def test_find
@@ -45,11 +43,12 @@ class TaskManagerTest < Minitest::Test
       description: "lots of it"}
     task_manager.create(data1)
     task_manager.create(data2)
-    assert_equal "lots of it", task_manager.find(2).description
-    assert_equal "get food", task_manager.find(2).title
-    assert_equal "some title", task_manager.find(1).title
-    assert_equal "some description", task_manager.find(1).description
-    teardown
+    task2 = task_manager.find(2)
+    task1 = task_manager.find(1)
+    assert_equal "lots of it", task2.description
+    assert_equal "get food", task2.title
+    assert_equal "some title", task1.title
+    assert_equal "some description", task1.description
   end
 
   def test_update
@@ -57,15 +56,14 @@ class TaskManagerTest < Minitest::Test
       id: 1,
       title: "some title",
       description: "some description"}
-      task_manager.create(data)
-      assert_equal "some title", task_manager.all.last.title
-      updated_info = {
-        "title"=>"get car", "description"=>"red one"
-      }
-      updated = task_manager.update(updated_info, 1)
-      assert_equal "get car", task_manager.all.last.title
-      assert_equal 1, task_manager.all.last.id
-      teardown
+    task_manager.create(data)
+    assert_equal "some title", task_manager.all.last.title
+    updated_info = {
+      "title"=>"get car", "description"=>"red one"
+    }
+    updated = task_manager.update(updated_info, 1)
+    assert_equal "get car", task_manager.all.last.title
+    assert_equal 1, task_manager.all.last.id
   end
 
   def test_delete
@@ -84,7 +82,6 @@ class TaskManagerTest < Minitest::Test
       "id"=>2, "title"=>"get food", "description"=>"yummy"
     }]
     assert_equal expected, task_manager.delete(1)
-    teardown
   end
 
 end
